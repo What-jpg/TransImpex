@@ -13,6 +13,7 @@ import WorldMap from "./svgs/worldMap.svg";
 import PartnersList from "./svgs/partnersList.svg";
 import ArrowIcon from "./svgs/arrowIcon.svg";
 import ArrowIconActive from "./svgs/arrowIconActive";
+import CertificatesCarousel from "./components/CertificatesCarousel";
 
 export default function Home() {
   return (
@@ -179,17 +180,7 @@ export default function Home() {
                         We&apos;ve successfully completed certification, granting us the authority to participate in humanitarian demining.
                     </p>
                 </div>
-                <div className={styles["third-section-certificates-box"]}>
-                    <img className={styles["third-section-certificate"]} />
-                    <img className={styles["third-section-certificate"]} />
-                    <img className={styles["third-section-certificate"]} />
-                </div>
-                <div className={styles["third-section-certificates-tabs-box"]}>
-                    <div className={styles["third-section-certificates-tab"]}></div>
-                    <div className={styles["third-section-certificates-tab-empty"]}></div>
-                    <div className={styles["third-section-certificates-tab-empty"]}></div>
-                    <div className={styles["third-section-certificates-tab-empty"]}></div>
-                </div>
+                <CertificatesCarousel />
             </div>
         </div>
         <div className={styles["index-page-fourth-section"]}>

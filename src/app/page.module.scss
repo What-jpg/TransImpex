@@ -247,12 +247,24 @@
   gap: 0.5rem;
 }
 
-.third-section-certificates-box {
+.third-section-caurosel-box {
   width: 100%;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.third-section-caurosel {
+  height: 100%;
+  width: 100%;
+}
+
+.third-section-certificates-box {
+  width: 100vw;
   display: flex;
   justify-content: space-evenly;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
 }
 
 .third-section-certificate {
@@ -264,6 +276,7 @@
 
 .third-section-certificates-tabs-box {
   display: flex;
+  justify-content: center;
   gap: 3vw;
 }
 
