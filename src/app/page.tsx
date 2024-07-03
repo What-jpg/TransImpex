@@ -14,6 +14,7 @@ import PartnersList from "./svgs/partnersList.svg";
 import ArrowIcon from "./svgs/arrowIcon.svg";
 import ArrowIconActive from "./svgs/arrowIconActive";
 import CertificatesCarousel from "./components/CertificatesCarousel";
+import PublicationsInMedia from "./components/PublicationsInMedia";
 
 export default function Home() {
   return (
@@ -251,48 +252,7 @@ export default function Home() {
             <h2>
                 Publications in media
             </h2>
-            <div className={styles["seventh-section-list-media-publications-box"]}>
-                <div className={styles["seventh-section-list-media-publication-chosen"]}>
-                    <img className={styles["seventh-section-list-media-publication-image"]} />
-                    <h2 className={styles["font-27-px"]}>
-                        Lorem ipsum dolor sit
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris.
-                    </p>
-                </div>
-                <div className={styles["seventh-section-list-media-publication"]}>
-                    <img className={styles["seventh-section-list-media-publication-image"]} />
-                    <h2 className={styles["font-27-px"]}>
-                        Lorem ipsum dolor sit
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris.
-                    </p>
-                </div>
-                <div className={styles["seventh-section-list-media-publication"]}>
-                    <img className={styles["seventh-section-list-media-publication-image"]} />
-                    <h2 className={styles["font-27-px"]}>
-                        Lorem ipsum dolor sit
-                    </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris.
-                    </p>
-                </div>
-                <div></div>
-            </div>
-            <div className={styles["seventh-section-controls-box"]}>
-                <div className={styles["seventh-section-tabs-box"]}>
-                    <div className={styles["seventh-section-tab-active"]}></div>
-                    <div className={styles["seventh-section-tab"]}></div>
-                    <div className={styles["seventh-section-tab"]}></div>
-                    <div className={styles["seventh-section-tab"]}></div>
-                </div>
-                <div className={styles["seventh-section-arrows-box"]}>
-                    <div><ArrowIcon className="h-100" /></div>
-                    <div><ArrowIconActive className={styles["seventh-section-arrow-180-rotate"] + " h-100"} /></div>
-                </div>
-            </div>
+            <PublicationsInMedia />
             <div className={styles["contact-us-container"]}>
                 <div className={styles["contact-us"]}>
                     <div className={styles["contact-us-text-box"]}>

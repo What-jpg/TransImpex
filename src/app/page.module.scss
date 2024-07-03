@@ -183,7 +183,7 @@
   width:  33%;
   display: flex;
   flex-direction: column;
-  gap: 2vw;
+  gap: 1vw;
 }
 
 .second-section-text-bold-extra-light-size {
@@ -247,7 +247,7 @@
   gap: 0.5rem;
 }
 
-.third-section-caurosel-box {
+.third-section-carousel-box {
   width: 100%;
   gap: 2rem;
   display: flex;
@@ -256,7 +256,7 @@
   margin-bottom: 2rem;
 }
 
-.third-section-caurosel {
+.third-section-carousel {
   height: 100%;
   width: 100%;
 }
@@ -270,7 +270,7 @@
 .third-section-certificate {
   background: #D9D9D9;
   border-radius: 23px;
-  width: 30vw;
+  width: 25vw;
   aspect-ratio: 38/53;
 }
 
@@ -417,39 +417,48 @@
   gap: 2rem;
 }
 
+.seventh-section-scroll-box {
+  display: flex;
+  overflow-x: scroll;
+  gap: 2vw;
+  width: 100%;
+}
+
+.seventh-section-list-media-publications-box-start {
+  display: flex;
+  gap: 2vw;
+  justify-content: end;
+  padding-left: 10vw;
+  width: 98vw;
+}
+
 .seventh-section-list-media-publications-box {
   display: flex;
   gap: 2vw;
-  justify-content: space-between;
-  padding-left: 10vw;
-  width: 100vw;
+  width: 88vw;
 }
 
-.seventh-section-list-media-publications-box-reversed {
+.seventh-section-list-media-publications-box-end {
   display: flex;
+  justify-content: start;
   gap: 2vw;
   padding-right: 10vw;
-  width: 100vw;
+  min-width: 98vw;
 }
 
 .seventh-section-list-media-publication {
-  width: 30vw;
+  width: 28vw;
   border: 2px solid #C9C9C9;
   border-radius: 10px;
   padding: 2vw;
   display: flex;
   flex-direction: column;
   gap: 1vw;
-}
+  cursor: pointer;
 
-.seventh-section-list-media-publication-chosen {
-  width: 30vw;
-  border: 2px solid #F53838;
-  border-radius: 10px;
-  padding: 2vw;
-  display: flex;
-  flex-direction: column;
-  gap: 1vw;
+  &:hover {
+    border: 2px solid #F53838;
+  }
 }
 
 .seventh-section-list-media-publication-image {

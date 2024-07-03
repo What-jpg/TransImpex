@@ -35,13 +35,15 @@ export default function CertificatesCarousel() {
             const chosenCerts = certsCopy.splice(0, certsInOnePack);
 
             packedCerts[packedCerts.length] = 
-            <div className={styles["third-section-certificates-box"]}>
-                {
-                    chosenCerts.map((val, i) =>
-                        <img key={i} src={val.path} className={styles["third-section-certificate"]} />
-                    )
-                }
-            </div>
+                <CarouselItem>
+                    <div className={styles["third-section-certificates-box"]}>
+                        {
+                            chosenCerts.map((val, i) =>
+                                <img key={i} src={val.path} className={styles["third-section-certificate"]} />
+                            )
+                        }
+                    </div>
+                </CarouselItem>
 
             certsCopyIsEmpty = certsCopy.length == 0
         }
@@ -58,13 +60,9 @@ export default function CertificatesCarousel() {
     }
 
     return (
-        <div className={styles["third-section-caurosel-box"]}>
-            <Carousel className={styles["third-section-caurosel"]} controls={false} indicators={false} activeIndex={index} onSelect={handleSelect}>
-                {packedCertificates.map((el, i) => {
-                    return <CarouselItem key={i}>
-                        {el}
-                    </CarouselItem>
-                })}
+        <div className={styles["third-section-carousel-box"]}>
+            <Carousel className={styles["third-section-carousel"]} controls={false} indicators={false} activeIndex={index} onSelect={handleSelect}>
+                {packedCertificates}
             </Carousel>
             <div className={styles["third-section-certificates-tabs-box"]}>
                 {
