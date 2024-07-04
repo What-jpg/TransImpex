@@ -388,14 +388,24 @@
 .sixth-section-partners-list {
   width: 100%;
   height: 8rem;
-  display: flex;
-  gap: 5vw;
   position: relative;
   overflow: hidden;
 }
 
-.svg-overflow-from-screen {
+.sixth-section-partners-list-svg-overflow-from-screen {
+  position: absolute;
   overflow: visible;
+  top: 0;
+  bottom: 0;
+  height: 8rem;
+  min-width: 200vw;
+  justify-content: space-around;
+  display: flex;
+}
+
+.sixth-section-partners-list-svg-overflow-from-screen-child {
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
 }
 
 .sixth-section-partners-list-fade-effect {
@@ -404,6 +414,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 50;
   background: radial-gradient(circle, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 100%);
 }
 

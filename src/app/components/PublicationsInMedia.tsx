@@ -48,43 +48,17 @@ export default function PublicationsInMedia() {
             const chosenPosts = postsCopy.splice(0, postsInOnePack);
             postsCopyIsEmpty = postsCopy.length == 0
             
+            let classForPack = "seventh-section-list-media-publications-box";
 
             if (firstIteration) {
-                packedPostsLocal[packedPostsLocal.length] = 
-                    <div className={styles["seventh-section-list-media-publications-box-start"]}>
-                        {chosenPosts.map((val, i) => // <div href={val.url} />
-                            <div key={i} className={styles["seventh-section-list-media-publication"]}>
-                                <img src={val.imgSrc} className={styles["seventh-section-list-media-publication-image"]} />
-                                <h2 className={styles["font-27-px"]}>
-                                    {val.header}
-                                </h2>
-                                <p>
-                                    {val.body}
-                                </p>
-                            </div>
-                        )}
-                    </div>
-
-                firstIteration = false;
+                classForPack += "-start"
             } else if (postsCopy.length == 0) {
-                packedPostsLocal[packedPostsLocal.length] = 
-                    <div className={styles["seventh-section-list-media-publications-box-end"]}>
-                        {chosenPosts.map((val, i) =>
-                            <div key={i} className={styles["seventh-section-list-media-publication"]}>
-                                <img src={val.imgSrc} className={styles["seventh-section-list-media-publication-image"]} />
-                                <h2 className={styles["font-27-px"]}>
-                                    {val.header}
-                                </h2>
-                                <p>
-                                    {val.body}
-                                </p>
-                            </div>
-                        )}
-                    </div>
-            } else {
-                packedPostsLocal[packedPostsLocal.length] = 
-                    <div className={styles["seventh-section-list-media-publications-box"]}>
-                        {chosenPosts.map((val, i) =>
+                classForPack += "-end"
+            }
+            
+            packedPostsLocal[packedPostsLocal.length] = 
+                <div className={styles[classForPack]}>
+                    {chosenPosts.map((val, i) => // <div href={val.url} />
                         <div key={i} className={styles["seventh-section-list-media-publication"]}>
                             <img src={val.imgSrc} className={styles["seventh-section-list-media-publication-image"]} />
                             <h2 className={styles["font-27-px"]}>
@@ -94,9 +68,10 @@ export default function PublicationsInMedia() {
                                 {val.body}
                             </p>
                         </div>
-                        )}
-                    </div>
-            }
+                    )}
+                </div>
+
+            firstIteration = false;
         }
 
         return packedPostsLocal;
@@ -146,11 +121,6 @@ export default function PublicationsInMedia() {
 
         for (let index = 0; index < packedPostsPositions.length - 1; index++) {
             const element = packedPostsPositions[index];
-            console.log(currentScroll);
-            console.log(element);
-            console.log(packedPostsPositions[index + 1]);
-            console.log(element <= currentScroll);
-            console.log(currentScroll)
             if (element <= currentScroll && packedPostsPositions[index + 1] - 1 > currentScroll) {
                 setCurrentTabIndex(index);
 

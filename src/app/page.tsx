@@ -10,11 +10,11 @@ import PositionIcon from "./svgs/positionIcon.svg";
 import TargetIcon from "./svgs/targetIcon.svg";
 import CheckmarkIcon from "./svgs/checkmark.svg";
 import WorldMap from "./svgs/worldMap.svg";
-import PartnersList from "./svgs/partnersList.svg";
 import ArrowIcon from "./svgs/arrowIcon.svg";
 import ArrowIconActive from "./svgs/arrowIconActive";
 import CertificatesCarousel from "./components/CertificatesCarousel";
 import PublicationsInMedia from "./components/PublicationsInMedia";
+import PartnersScroll from "./components/PartnersScroll";
 
 export default function Home() {
   return (
@@ -240,13 +240,10 @@ export default function Home() {
             </div>
         </div>
         <div className={styles["index-page-sixth-section"]}>
-        <h2>
-            Our Partners
-        </h2>
-        <div className={styles["sixth-section-partners-list"]}>
-            <div className={styles["sixth-section-partners-list-fade-effect"]}></div>
-            <PartnersList className={styles["svg-overflow-from-screen"]} />
-            </div>
+            <h2>
+                Our Partners
+            </h2>
+            <PartnersScroll />
         </div>
         <div className={styles["index-page-seventh-section"]}>
             <h2>
