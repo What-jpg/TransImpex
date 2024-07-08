@@ -4,9 +4,10 @@ import styles from "../page.module.scss";
 
 import { JSXElementConstructor, ReactElement, useEffect, useState } from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
+import Image, { StaticImageData } from "next/image";
 
 interface certificate {
-    path: string;
+    img: string;
 }
 
 export default function CertificatesCarousel() {
@@ -14,14 +15,14 @@ export default function CertificatesCarousel() {
     const [packedCertificates, setPackedCertificates] = useState<ReactElement<any, string | JSXElementConstructor<any>>[]>([]);
 
     const testCertificates: Array<certificate> = [
-        {path: "..."},
-        {path: "..."},
-        {path: "..."},
-        {path: "..."},
-        {path: "..."},
-        {path: "..."},
-        {path: "..."},
-        {path: "..."},
+        {img: "/certificates/cert1.jpeg"},
+        {img: "/certificates/cert1.jpeg"},
+        {img: "/certificates/cert1.jpeg"},
+        {img: "/certificates/cert1.jpeg"},
+        {img: "/certificates/cert1.jpeg"},
+        {img: "/certificates/cert1.jpeg"},
+        {img: "/certificates/cert1.jpeg"},
+        {img: "/certificates/cert1.jpeg"},
     ];
 
     function packCertificates(certs: Array<certificate>, certsInOnePack: number) {
@@ -39,7 +40,7 @@ export default function CertificatesCarousel() {
                     <div className={styles["third-section-certificates-box"]}>
                         {
                             chosenCerts.map((val, i) =>
-                                <img key={i} src={val.path} className={styles["third-section-certificate"]} />
+                                <Image className={styles["third-section-certificate"]} key={i} src={val.img} alt="certificate" />
                             )
                         }
                     </div>

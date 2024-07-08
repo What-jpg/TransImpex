@@ -2,36 +2,37 @@
 
 import styles from "../page.module.scss";
 
+import ArrowIcon from "../svgs/arrowIcon.svg";
+import ArrowIconActive from "../svgs/arrowIconActive";
+
+import Link from "next/link";
+import Image, { StaticImageData } from "next/image";
 import { DetailedHTMLProps, HTMLAttributes, JSXElementConstructor, LegacyRef, ReactElement, useEffect, useRef, useState } from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
 
-import ArrowIcon from "../svgs/arrowIcon.svg";
-import ArrowIconActive from "../svgs/arrowIconActive";
-import Link from "next/link";
-
 interface mediaPost {
     url: string;
-    imgSrc: string;
+    img: string;
     header: string;
     body: string;
 }
 
 export default function PublicationsInMedia() {
     const scrollRef = useRef<HTMLDivElement>(null);
-    const [scroolPosition, setScrollPosition] = useState(0);
     const [packedPosts, setPackedPosts] = useState<ReactElement<any, string | JSXElementConstructor<any>>[]>([]);
     const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
     const [packedPostsPositions, setPackedPostsPositions] = useState<number[]>([]);
 
     const testPosts: Array<mediaPost> = [
-        {url: "#", imgSrc: "...", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
-        {url: "#", imgSrc: "...", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
-        {url: "#", imgSrc: "...", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
-        {url: "#", imgSrc: "...", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
-        {url: "#", imgSrc: "...", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
-        {url: "#", imgSrc: "...", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
-        {url: "#", imgSrc: "...", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
-        {url: "#", imgSrc: "...", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ1.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ2.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ3.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ1.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ2.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ3.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ1.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ1.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ2.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
     ];
 
     function packPosts(posts: Array<mediaPost>, postsInOnePack: number) {
@@ -50,24 +51,24 @@ export default function PublicationsInMedia() {
             
             let classForPack = "seventh-section-list-media-publications-box";
 
-            if (firstIteration) {
+            if (firstIteration && postsCopy.length != 0) {
                 classForPack += "-start"
-            } else if (postsCopy.length == 0) {
+            } else if (postsCopy.length == 0 && !firstIteration) {
                 classForPack += "-end"
             }
             
             packedPostsLocal[packedPostsLocal.length] = 
                 <div className={styles[classForPack]}>
                     {chosenPosts.map((val, i) => // <div href={val.url} />
-                        <div key={i} className={styles["seventh-section-list-media-publication"]}>
-                            <img src={val.imgSrc} className={styles["seventh-section-list-media-publication-image"]} />
+                        <Link className={styles["seventh-section-list-media-publication"]} href={val.url} key={i}>
+                            <Image className={styles["seventh-section-list-media-publication-image"]} src={val.img} alt="Publication image" />
                             <h2 className={styles["font-27-px"]}>
                                 {val.header}
                             </h2>
                             <p>
                                 {val.body}
                             </p>
-                        </div>
+                        </Link>
                     )}
                 </div>
 
@@ -82,17 +83,20 @@ export default function PublicationsInMedia() {
 
         for (let index = 0; index < packedPostsLocal.length - 1; index++) {
             if (index > packedPostsLocal.length - 2) {
-                packedPostsPosition[packedPostsPosition.length] = 
-                    scrollRef.current?.scrollWidth 
-                    ? 
-                    scrollRef.current?.scrollWidth 
-                    : 
-                    0;
-            } else {
+                //  fake data for population
+                packedPostsPosition[packedPostsPosition.length] = -1;
+            } else if (index == 0) {
                 packedPostsPosition[packedPostsPosition.length] = 
                     (window.innerWidth / 100) 
                     * 
                     (100 - 6 /*windowWidth - left*/) 
+                    + 
+                    packedPostsPosition[packedPostsPosition.length - 1];
+            } else {
+                packedPostsPosition[packedPostsPosition.length] = 
+                    (window.innerWidth / 100) 
+                    * 
+                    (100 - 10 /*windowWidth - left*/) 
                     + 
                     packedPostsPosition[packedPostsPosition.length - 1];
             }
@@ -105,7 +109,19 @@ export default function PublicationsInMedia() {
         const packedPostsLocal = packPosts(testPosts, 3);
 
         setPackedPosts(packedPostsLocal);
-        setPackedPostsPositions(getPackedPostsPositions(packedPostsLocal))
+
+        const packedPostsPossCopy = getPackedPostsPositions(packedPostsLocal);
+
+        const scrollWidth = scrollRef.current?.scrollWidth;
+        const clientWidth = scrollRef.current?.clientWidth;
+        
+        if (scrollWidth && clientWidth) {
+            packedPostsPossCopy[packedPostsPossCopy.length - 1] = scrollWidth - clientWidth;
+        } else {
+            packedPostsPossCopy[packedPostsPossCopy.length - 1] = 0
+        }
+
+        setPackedPostsPositions(packedPostsPossCopy);
     }, [testPosts]);
 
     function changeCurrentScrollPositionIndex(index: number) {
@@ -115,13 +131,19 @@ export default function PublicationsInMedia() {
     function handleScroll() {
         const currentScroll = scrollRef.current?.scrollLeft ? scrollRef.current?.scrollLeft : 0;
 
-        setScrollPosition(
-            currentScroll
-        );
+        console.log(currentScroll);
+        console.log(packedPostsPositions);
+        const currentwio: any = scrollRef.current?.scrollWidth;
+        const jfkd: any = scrollRef.current?.clientWidth;
+        console.log("max" + (currentwio - jfkd));
 
         for (let index = 0; index < packedPostsPositions.length - 1; index++) {
-            const element = packedPostsPositions[index];
-            if (element <= currentScroll && packedPostsPositions[index + 1] - 1 > currentScroll) {
+            const element = Math.round(packedPostsPositions[index]);
+            const nextElement = Math.round(packedPostsPositions[index + 1]);
+            const roundedCurrentScroll = Math.round(currentScroll);
+
+            console.log("el" + element);
+            if (element <= roundedCurrentScroll && nextElement > roundedCurrentScroll) {
                 setCurrentTabIndex(index);
 
                 return;

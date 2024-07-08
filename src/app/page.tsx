@@ -12,47 +12,18 @@ import CheckmarkIcon from "./svgs/checkmark.svg";
 import WorldMap from "./svgs/worldMap.svg";
 import ArrowIcon from "./svgs/arrowIcon.svg";
 import ArrowIconActive from "./svgs/arrowIconActive";
+
 import CertificatesCarousel from "./components/CertificatesCarousel";
 import PublicationsInMedia from "./components/PublicationsInMedia";
 import PartnersScroll from "./components/PartnersScroll";
+import HeaderComponent from "./components/HeaderComponent";
+import Image from "next/image";
 
 export default function Home() {
+
   return (
     <main>
-        <header>
-            <div className={"header-content"}>
-                <div className={"header-links-section header-links-section-end-position-addition"}>
-                    <div className={"header-links-section-block-for-end-position"}></div>
-                    <a>Overview</a>
-                    <a>Services</a>
-                    <a>Contacts</a>
-                </div>
-                <HeaderIcon className={"header-icon"} />
-                <div className={"header-links-section"}>
-                    <a>Employment</a>
-                    <a>Blog</a>
-                    <a>Support us</a>
-                    <div className={"header-language"}>
-                        UA
-                    </div>
-                </div>
-            </div>
-            <div className={"burger-menu"}>
-                <div className={"burger-menu-main-header"}>
-                <HeaderIcon className={"header-icon"} />
-                    <div className={"burger-menu-menu-button-container"}>
-                        <div className={"header-language"}>
-                            UA
-                        </div>
-                        <div className={"menu-button"}>
-                            <hr className={"menu-button-line"} />
-                            <hr className={"menu-button-line"} />
-                            <hr className={"menu-button-line"} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <HeaderComponent />
         <div className={styles["index-page-first-section"]}>
             <div className={styles["index-page-first-section-social-media-links"]}>
                 <div className={styles["first-section-social-media-link"]}>
@@ -131,7 +102,7 @@ export default function Home() {
         </div>
         <div className={styles["index-page-second-section"]}>
             <div className={styles["index-page-second-section-box"]}>
-                <img className={styles["second-section-image"]} />
+                <Image className={styles["second-section-image"]} src="/deminer.jpeg" alt="photo" />
                 <div className={styles["second-section-text-box"]}>
                     <h2>
                         Services
