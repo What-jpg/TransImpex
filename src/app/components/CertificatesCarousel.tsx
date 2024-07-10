@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../page.module.scss";
+import styles from "../scss/page.module.scss";
 
 import { JSXElementConstructor, ReactElement, useEffect, useState } from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
@@ -40,7 +40,7 @@ export default function CertificatesCarousel() {
                     <div className={styles["third-section-certificates-box"]}>
                         {
                             chosenCerts.map((val, i) =>
-                                <Image className={styles["third-section-certificate"]} key={i} src={val.img} alt="certificate" />
+                                <div className={styles["third-section-certificate-box"]} key={i}><Image src={val.img} alt="certificate" /></div>
                             )
                         }
                     </div>
@@ -71,7 +71,7 @@ export default function CertificatesCarousel() {
                         return <div 
                             key={i}
                             onClick={() => setIndex(i)}
-                            className={styles[`third-section-certificates-tab${i == index ? "" : "-empty"}`]}
+                            className={styles[`third-section-certificates-tab${i == index ? "-active" : ""}`]}
                         ></div>
                     })
                 }

@@ -1,4 +1,4 @@
-import styles from "./page.module.scss";
+import styles from "./scss/page.module.scss";
 
 import HeaderIcon from "./svgs/headerIcon.svg";
 import FooterIcon from "./svgs/footerIcon.svg";
@@ -18,14 +18,18 @@ import PublicationsInMedia from "./components/PublicationsInMedia";
 import PartnersScroll from "./components/PartnersScroll";
 import HeaderComponent from "./components/HeaderComponent";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
+    const employees = "285+";
+    const landCleared = "1,300";
+    const disposedCases = "7,000 tons";
 
   return (
     <main>
         <HeaderComponent />
-        <div className={styles["index-page-first-section"]}>
-            <div className={styles["index-page-first-section-social-media-links"]}>
+        <div className={styles["first-section"]}>
+            <div className={styles["first-section-social-media-links"]}>
                 <div className={styles["first-section-social-media-link"]}>
                     <Instagram className="h-100" />
                 </div>
@@ -36,14 +40,14 @@ export default function Home() {
                     <YouTube className="h-100" />
                 </div>
             </div>
-            <div className={styles["index-page-first-section-content"]}>
-                <div className={styles["index-page-first-section-box"]}>
+            <div className={styles["first-section-content"]}>
+                <div className={styles["first-section-box"]}>
                     <div className={styles["first-section-buttons-text-container"]} >
                         <div>
-                            <h1 className={styles["first-section-header-text"]}>
+                            <h1 className={styles["text-6xl-white-700"]}>
                                 National Mine Action Operator
                             </h1>
-                            <h2 className={styles["first-section-subheader-text"]}>
+                            <h2 className={styles["text-4xl-white"]}>
                                 Let&apos;s make a world safer
                             </h2>
                         </div>
@@ -58,10 +62,10 @@ export default function Home() {
                         <div className={styles["first-section-info-block-box"]}>
                             <PersonIcon />
                             <div className={styles["first-section-info-block-boxes-for-text"]}>
-                                <p className={styles["first-section-info-block-boxes-text-bold-extra-size"]}>
-                                    285+
+                                <p className={styles["text-3xl-black-700"]}>
+                                    {employees}
                                 </p>
-                                <p className={styles["first-section-info-block-boxes-text"]}>
+                                <p className={styles["text-xl-grey"]}>
                                     Employees
                                 </p>
                             </div>
@@ -70,13 +74,13 @@ export default function Home() {
                         <div className={styles["first-section-info-block-box"]}>
                             <PositionIcon />
                             <div className={styles["first-section-info-block-boxes-for-text"]}>
-                                <p className={styles["first-section-info-block-boxes-text"]}>
+                                <p className={styles["text-xl-grey"]}>
                                     Cleared more than
                                 </p>
-                                <p className={styles["first-section-info-block-boxes-text-bold"]}>
-                                    1,300
+                                <p className={styles["text-xl-black-700"]}>
+                                    {landCleared}
                                 </p>
-                                <p className={styles["first-section-info-block-boxes-text"]}>
+                                <p className={styles["text-xl-grey"]}>
                                     of contaminated land.
                                 </p>
                             </div>
@@ -85,13 +89,13 @@ export default function Home() {
                         <div className={styles["first-section-info-block-box"]}>
                             <TargetIcon />
                             <div className={styles["first-section-info-block-boxes-for-text"]}>
-                                <p className={styles["first-section-info-block-boxes-text"]}>
+                                <p className={styles["text-xl-grey"]}>
                                     Disposed over
                                 </p>
-                                <p className={styles["first-section-info-block-boxes-text-bold"]}>
-                                    7,000 tons
+                                <p className={styles["text-xl-black-700"]}>
+                                    {disposedCases}
                                 </p>
-                                <p className={styles["first-section-info-block-boxes-text"]}>
+                                <p className={styles["text-xl-grey"]}>
                                     of explosive hazards
                                 </p>
                             </div>
@@ -100,9 +104,9 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        <div className={styles["index-page-second-section"]}>
-            <div className={styles["index-page-second-section-box"]}>
-                <Image className={styles["second-section-image"]} src="/deminer.jpeg" alt="photo" />
+        <div className={styles["second-section"]}>
+            <div className={styles["second-section-box"]}>
+                <div className={styles["second-section-image-container"]}><Image src="/deminer.jpeg" alt="photo" /></div>
                 <div className={styles["second-section-text-box"]}>
                     <h2>
                         Services
@@ -113,25 +117,25 @@ export default function Home() {
                     <div className={styles["second-section-box-for-services"]}>
                         <div className={styles["box-for-text-with-check-marks"]}>
                             <CheckmarkIcon />
-                            <p className={styles["second-section-text-bold-extra-light-size"]}>
+                            <p className={styles["text-sm-grey"]}>
                                 Education and training
                             </p>
                         </div>
                         <div className={styles["box-for-text-with-check-marks"]}>
                             <CheckmarkIcon />
-                            <p className={styles["second-section-text-bold-extra-light-size"]}>
+                            <p className={styles["text-sm-grey"]}>
                                 Operations
                             </p>
                         </div>
                         <div className={styles["box-for-text-with-check-marks"]}>
                             <CheckmarkIcon />
-                            <p className={styles["second-section-text-bold-extra-light-size"]}>
+                            <p className={styles["text-sm-grey"]}>
                                 Recognition of the company
                             </p>
                         </div>
                         <div className={styles["box-for-text-with-check-marks"]}>
                             <CheckmarkIcon />
-                            <p className={styles["second-section-text-bold-extra-light-size"]}>
+                            <p className={styles["text-sm-grey"]}>
                                 Goals and objectives
                             </p>
                         </div>
@@ -142,9 +146,9 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        <div className={styles["index-page-third-section"]}>
-            <div className={styles["index-page-third-section-box"]}>
-                <div className={styles["index-page-third-section-text-box"]}>
+        <div className={styles["third-section"]}>
+            <div className={styles["third-section-box"]}>
+                <div className={styles["third-section-text-box"]}>
                     <h2>
                         Our credentials are verified
                     </h2>
@@ -155,8 +159,8 @@ export default function Home() {
                 <CertificatesCarousel />
             </div>
         </div>
-        <div className={styles["index-page-fourth-section"]}>
-            <div className={styles["index-page-fourth-section-box"]}>
+        <div className={styles["fourth-section"]}>
+            <div className={styles["fourth-section-box"]}>
                 <div className={styles["fourth-section-text-box"]}>
                     <h2>
                         Past projects map
@@ -168,55 +172,55 @@ export default function Home() {
                 <WorldMap />
             </div>
         </div>
-        <div className={styles["index-page-fifth-section"]}>
-            <div className={styles["index-page-fifth-section-box"]}>
+        <div className={styles["fifth-section"]}>
+            <div className={styles["fifth-section-box"]}>
                 <h2>
                     Our Goals
                 </h2>
                 <div className={styles["fifth-section-goals-container"]}>
                     <div className={styles["fifth-section-goal"]}>
-                        <h2 className={styles["font-24-px"]}>
+                        <h3 className={styles["text-2xl-black-700"]}>
                             буубубуббубубуб
-                        </h2>
-                        <p className={styles["font-20-px"]}>
+                        </h3>
+                        <p className={styles["text-xl-grey"]}>
                             Nulla facilisi. Sed eget consequat enim. Nam condimentum nulla id risus interdum lacinia. Proin egestas odio laoreet leo rhoncus condimentum.
                         </p>
-                        <p className={styles["font-20-px"]}>
+                        <p className={styles["text-xl-grey"]}>
                             Nam fringilla urna dui, lacinia congue mi luctus sed. Suspendisse consectetur mi vel aliquet tristique. Nam ante urna, laoreet ut finibus a, facilisis vel tellus. Phasellus arcu dui, iaculis in lorem ultricies, condimentum gravida nulla.
                         </p>
                     </div>
                     <div className={styles["fifth-section-goal"]}>
-                        <h2 className={styles["font-24-px"]}>
+                        <h3 className={styles["text-2xl-black-700"]}>
                             буубубуббубубуб
-                        </h2>
-                        <p className={styles["font-20-px"]}>
+                        </h3>
+                        <p className={styles["text-xl-grey"]}>
                             Nulla facilisi. Sed eget consequat enim. Nam condimentum nulla id risus interdum lacinia. Proin egestas odio laoreet leo rhoncus condimentum.
                         </p>
-                        <p className={styles["font-20-px"]}>
+                        <p className={styles["text-xl-grey"]}>
                             Nam fringilla urna dui, lacinia congue mi luctus sed. Suspendisse consectetur mi vel aliquet tristique. Nam ante urna, laoreet ut finibus a, facilisis vel tellus. Phasellus arcu dui, iaculis in lorem ultricies, condimentum gravida nulla.
                         </p>
                     </div>
                     <div className={styles["fifth-section-goal"]}>
-                        <h2 className={styles["font-24-px"]}>
+                        <h3 className={styles["text-2xl-black-700"]}>
                             буубубуббубубуб
-                        </h2>
-                        <p className={styles["font-20-px"]}>
+                        </h3>
+                        <p className={styles["text-xl-grey"]}>
                             Nulla facilisi. Sed eget consequat enim. Nam condimentum nulla id risus interdum lacinia. Proin egestas odio laoreet leo rhoncus condimentum.
                         </p>
-                        <p className={styles["font-20-px"]}>
+                        <p className={styles["text-xl-grey"]}>
                             Nam fringilla urna dui, lacinia congue mi luctus sed. Suspendisse consectetur mi vel aliquet tristique. Nam ante urna, laoreet ut finibus a, facilisis vel tellus. Phasellus arcu dui, iaculis in lorem ultricies, condimentum gravida nulla.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <div className={styles["index-page-sixth-section"]}>
+        <div className={styles["sixth-section"]}>
             <h2>
                 Our Partners
             </h2>
             <PartnersScroll />
         </div>
-        <div className={styles["index-page-seventh-section"]}>
+        <div className={styles["seventh-section"]}>
             <h2>
                 Publications in media
             </h2>
@@ -244,7 +248,7 @@ export default function Home() {
                         <div className="footer-info-text-box" >
                             <div className="footer-info-header-box">
                                 <FooterIcon />
-                                <h2 className="footer-header-20-px">
+                                <h2 className="text-xl-black-500">
                                     Transimplex Demining
                                 </h2>
                             </div>
@@ -262,46 +266,46 @@ export default function Home() {
                             <div className="footer-info-circle"></div>
                             <div className="footer-info-circle"></div>
                         </div>
-                        <p className="footer-info-license-text">
+                        <p className="text-md-grey-special">
                             ©2024 Transimplex Demining
                         </p>
                     </div>
                     <div className="footer-contacts-box">
-                        <h2 className="footer-header-20-px">
+                        <h2 className="text-xl-black-500">
                             Contacts
                         </h2>
                         <div className="footer-contacts-links-box">
-                            <a className="footer-contacts-text footer-contacts-link-addition">
+                            <a className="text-md-black-underline">
                                 +380990809885
                             </a>
-                            <a className="footer-contacts-text footer-contacts-link-addition">
+                            <a className="text-md-black-underline">
                                 office@aaa.pro
                             </a>
                         </div>
-                        <p className="footer-contacts-text">
+                        <p className="text-md-black">
                             Kyiv, str. Shevchenko, 999
                         </p>
                     </div>
                 </div>
                 <div className="footer-overview-box">
-                    <h2 className="footer-header-18-px">
+                    <h2 className="text-l-black-500">
                         Overview
                     </h2>
-                    <p>
+                    <Link href="#" className="text-md-grey">
                         Services
-                    </p>
-                    <p>
+                    </Link>
+                    <Link href="#" className="text-md-grey">
                         Contacts
-                    </p>
-                    <p>
+                    </Link>
+                    <Link href="#" className="text-md-grey">
                         Employment
-                    </p>
-                    <p>
+                    </Link>
+                    <Link href="#" className="text-md-grey">
                         Blog
-                    </p>
-                    <p>
+                    </Link>
+                    <Link href="#" className="text-md-grey">
                         Support
-                    </p>
+                    </Link>
                 </div>
             </div>
         </footer>

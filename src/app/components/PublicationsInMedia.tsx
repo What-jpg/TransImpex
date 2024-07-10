@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../page.module.scss";
+import styles from "../scss/page.module.scss";
 
 import ArrowIcon from "../svgs/arrowIcon.svg";
 import ArrowIconActive from "../svgs/arrowIconActive";
@@ -31,8 +31,8 @@ export default function PublicationsInMedia() {
         {url: "#", img: "/publicationsImages/publ2.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
         {url: "#", img: "/publicationsImages/publ3.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
         {url: "#", img: "/publicationsImages/publ1.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
-        {url: "#", img: "/publicationsImages/publ1.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
         {url: "#", img: "/publicationsImages/publ2.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
+        {url: "#", img: "/publicationsImages/publ3.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
     ];
 
     function packPosts(posts: Array<mediaPost>, postsInOnePack: number) {
@@ -61,7 +61,7 @@ export default function PublicationsInMedia() {
                 <div className={styles[classForPack]}>
                     {chosenPosts.map((val, i) => // <div href={val.url} />
                         <Link className={styles["seventh-section-list-media-publication"]} href={val.url} key={i}>
-                            <Image className={styles["seventh-section-list-media-publication-image"]} src={val.img} alt="Publication image" />
+                            <div className={styles["seventh-section-list-media-publication-image-container"]}><Image src={val.img} alt="Publication image" /></div>
                             <h2 className={styles["font-27-px"]}>
                                 {val.header}
                             </h2>
@@ -164,17 +164,19 @@ export default function PublicationsInMedia() {
                     )}
                 </div>
                 <div className={styles["seventh-section-arrows-box"]}>
-                    {currentTabIndex == 0 
-                    ?
-                    <div><ArrowIcon className="h-100" /></div>
-                    :
-                    <div onClick={() => changeCurrentScrollPositionIndex(currentTabIndex - 1)}><ArrowIconActive className="h-100" /></div>
+                    {
+                        currentTabIndex == 0 
+                        ?
+                        <div><ArrowIcon className="h-100" /></div>
+                        :
+                        <div onClick={() => changeCurrentScrollPositionIndex(currentTabIndex - 1)}><ArrowIconActive className="h-100" /></div>
                     }
-                    {currentTabIndex == packedPostsPositions.length - 1
-                    ?
-                    <div><ArrowIcon className={styles["seventh-section-arrow-180-rotate"] + " h-100"} /></div>
-                    :
-                    <div onClick={() => changeCurrentScrollPositionIndex(currentTabIndex + 1)}><ArrowIconActive className={styles["seventh-section-arrow-180-rotate"]  + " h-100"} /></div>
+                    {
+                        currentTabIndex == packedPostsPositions.length - 1
+                        ?
+                        <div><ArrowIcon className={styles["seventh-section-arrow-180-rotate"] + " h-100"} /></div>
+                        :
+                        <div onClick={() => changeCurrentScrollPositionIndex(currentTabIndex + 1)}><ArrowIconActive className={styles["seventh-section-arrow-180-rotate"]  + " h-100"} /></div>
                     }
                 </div>
             </div>

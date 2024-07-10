@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../page.module.scss";
+import styles from "../scss/page.module.scss";
 
 import { JSXElementConstructor, ReactElement, useEffect, useRef, useState } from "react";
 import TestPartner from "../svgs/testPartner.svg";
@@ -19,16 +19,12 @@ export default function PartnersScroll() {
 
     function mapPartners(partnersImgs: Array<string>) {
         return partnersImgs.map((val, i) => 
-            <Image className="h-100" key={i} src={val} alt="Partner icon" />
+            <div className={styles["sixth-section-partners-list-svg-overflow-from-screen-child"]} key={i}><Image src={val} alt="Partner icon" /></div>
         );
     }
 
-    function doublePartnersAndAddClass(partners: ReactElement<any, string | JSXElementConstructor<any>>[]) {
-        const partnersWithAddedClass = partners.map((val, i) => {
-            val.props.className += ` ${styles["sixth-section-partners-list-svg-overflow-from-screen-child"]}`;
-            return val
-        })
-        return [partnersWithAddedClass, partnersWithAddedClass];
+    function doublePartners(partners: ReactElement<any, string | JSXElementConstructor<any>>[]) {
+        return [partners, partners];
     }
 
     function startScrollingAnimation(startingPosition: number) {
@@ -59,7 +55,7 @@ export default function PartnersScroll() {
         <div className={styles["sixth-section-partners-list"]}>
             <div style={{left: currentPosition}} ref={scrollRef} className={styles["sixth-section-partners-list-svg-overflow-from-screen"]}>
                 {
-                    doublePartnersAndAddClass(mapPartners(testPartnersImgSrcs))
+                    doublePartners(mapPartners(testPartnersImgSrcs))
                 }
             </div>
             <div className={styles["sixth-section-partners-list-fade-effect"]}></div>
