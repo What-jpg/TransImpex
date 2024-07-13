@@ -115,25 +115,25 @@ export default function Home() {
                         Company activities
                     </p>
                     <div className={styles["second-section-box-for-services"]}>
-                        <div className={styles["box-for-text-with-check-marks"]}>
+                        <div className={styles["second-section-box-for-text-with-check-marks"]}>
                             <CheckmarkIcon />
                             <p className={styles["text-sm-grey"]}>
                                 Education and training
                             </p>
                         </div>
-                        <div className={styles["box-for-text-with-check-marks"]}>
+                        <div className={styles["second-section-box-for-text-with-check-marks"]}>
                             <CheckmarkIcon />
                             <p className={styles["text-sm-grey"]}>
                                 Operations
                             </p>
                         </div>
-                        <div className={styles["box-for-text-with-check-marks"]}>
+                        <div className={styles["second-section-box-for-text-with-check-marks"]}>
                             <CheckmarkIcon />
                             <p className={styles["text-sm-grey"]}>
                                 Recognition of the company
                             </p>
                         </div>
-                        <div className={styles["box-for-text-with-check-marks"]}>
+                        <div className={styles["second-section-box-for-text-with-check-marks"]}>
                             <CheckmarkIcon />
                             <p className={styles["text-sm-grey"]}>
                                 Goals and objectives
@@ -179,7 +179,7 @@ export default function Home() {
                 </h2>
                 <div className={styles["fifth-section-goals-container"]}>
                     <div className={styles["fifth-section-goal"]}>
-                        <h3 className={styles["text-2xl-black-700"]}>
+                        <h3 className={styles["fifth-section-goal-header"]}>
                             буубубуббубубуб
                         </h3>
                         <p className={styles["text-xl-grey"]}>
@@ -190,7 +190,7 @@ export default function Home() {
                         </p>
                     </div>
                     <div className={styles["fifth-section-goal"]}>
-                        <h3 className={styles["text-2xl-black-700"]}>
+                        <h3 className={styles["fifth-section-goal-header"]}>
                             буубубуббубубуб
                         </h3>
                         <p className={styles["text-xl-grey"]}>
@@ -201,7 +201,7 @@ export default function Home() {
                         </p>
                     </div>
                     <div className={styles["fifth-section-goal"]}>
-                        <h3 className={styles["text-2xl-black-700"]}>
+                        <h3 className={styles["fifth-section-goal-header"]}>
                             буубубуббубубуб
                         </h3>
                         <p className={styles["text-xl-grey"]}>

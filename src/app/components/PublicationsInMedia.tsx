@@ -9,6 +9,7 @@ import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { DetailedHTMLProps, HTMLAttributes, JSXElementConstructor, LegacyRef, ReactElement, useEffect, useRef, useState } from "react";
 import { Carousel, CarouselItem } from "react-bootstrap";
+import useInnerWidth from "../hooks/useInnerWidth";
 
 interface mediaPost {
     url: string;
@@ -22,6 +23,7 @@ export default function PublicationsInMedia() {
     const [packedPosts, setPackedPosts] = useState<ReactElement<any, string | JSXElementConstructor<any>>[]>([]);
     const [currentTabIndex, setCurrentTabIndex] = useState<number>(0);
     const [packedPostsPositions, setPackedPostsPositions] = useState<number[]>([]);
+    const width = useInnerWidth();
 
     const testPosts: Array<mediaPost> = [
         {url: "#", img: "/publicationsImages/publ1.jpeg", header: "Lorem ipsum dolor sit", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean risus orci, fringilla nec congue sit amet, volutpat ac dui. Etiam metus quam, luctus non lobortis ut, malesuada a ris."},
@@ -37,7 +39,9 @@ export default function PublicationsInMedia() {
 
     function packPosts(posts: Array<mediaPost>, postsInOnePack: number) {
         const packedPostsLocal: Array<React.ReactElement> = [];
-        const packedPostsPosition: Array<number> = [0];
+
+        const gapsTotalWidth = (postsInOnePack - 1) * 2; /* gapsCount * gapWidth */
+        const postWidth = (88 - gapsTotalWidth) / postsInOnePack; /* (totalWidthForOnePack - gapsTotalWidth) / postsInOnePack */
 
         let postsCopy = posts;
 
@@ -59,8 +63,8 @@ export default function PublicationsInMedia() {
             
             packedPostsLocal[packedPostsLocal.length] = 
                 <div className={styles[classForPack]}>
-                    {chosenPosts.map((val, i) => // <div href={val.url} />
-                        <Link className={styles["seventh-section-list-media-publication"]} href={val.url} key={i}>
+                    {chosenPosts.map((val, i) =>
+                        <Link style={{width: `${postWidth}vw`}} className={styles["seventh-section-list-media-publication"]} href={val.url} key={i}>
                             <div className={styles["seventh-section-list-media-publication-image-container"]}><Image src={val.img} alt="Publication image" /></div>
                             <h2 className={styles["font-27-px"]}>
                                 {val.header}
@@ -106,7 +110,11 @@ export default function PublicationsInMedia() {
     }
 
     useEffect(() => {
-        const packedPostsLocal = packPosts(testPosts, 3);
+        let inOnePack = 3
+        if (width <= 768)
+            inOnePack = 2;
+
+        const packedPostsLocal = packPosts(testPosts, inOnePack);
 
         setPackedPosts(packedPostsLocal);
 
@@ -122,7 +130,7 @@ export default function PublicationsInMedia() {
         }
 
         setPackedPostsPositions(packedPostsPossCopy);
-    }, [testPosts]);
+    }, [testPosts, width]);
 
     function changeCurrentScrollPositionIndex(index: number) {
         scrollRef.current?.scrollTo({left: packedPostsPositions[index], behavior: "smooth"});
